@@ -1,0 +1,50 @@
+{
+  "name": "theechonest",
+  "description": "API client for The Echo Nest",
+  "version": "0.0.1",
+  "author": {
+    "name": "Playlist, Inc",
+    "url": "http://www.playlist.com"
+  },
+  "contributors": [
+    {
+      "name": "Jacob Gillespie",
+      "email": "jacobwgillespie@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/playlist-media/theechonest",
+  "bugs": {
+    "url": "https://github.com/playlist-media/theechonest/issues"
+  },
+  "dependencies": {
+    "request": "~2.27.0"
+  },
+  "devDependencies": {
+    "blanket": "~1.1.5",
+    "mocha": "~1.12.1",
+    "mocha-lcov-reporter": "0.0.1",
+    "coveralls": "~2.2.0",
+    "jshint": "~2.1.10"
+  },
+  "keywords": [
+    "echonest",
+    "theechonest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playlist-media/theechonest.git"
+  },
+  "main": "index",
+  "scripts": {
+    "prepublish": "npm prune",
+    "test": "make test",
+    "test-coveralls": "make test-coveralls",
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": "node_modules"
+    }
+  },
+  "engines": {
+    "node": "*"
+  }
+}
