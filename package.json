@@ -21,11 +21,11 @@
     "kew": "~0.1.7"
   },
   "devDependencies": {
-    "blanket": "~1.1.5",
+    "chai": "~1.7.2",
     "mocha": "~1.12.1",
-    "mocha-lcov-reporter": "0.0.1",
     "coveralls": "~2.2.0",
-    "jshint": "~2.1.10"
+    "jshint": "~2.1.10",
+    "istanbul": "~0.1.43"
   },
   "keywords": [
     "echonest",
@@ -38,12 +38,7 @@
   "main": "index",
   "scripts": {
     "prepublish": "npm prune",
-    "test": "make test",
-    "test-coveralls": "make test-coveralls",
-    "blanket": {
-      "pattern": "lib",
-      "data-cover-never": "node_modules"
-    }
+    "test": "make test"
   },
   "engines": {
     "node": "*"

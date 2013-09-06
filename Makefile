@@ -1,27 +1,25 @@
-MOCHA_OPTS= --check-leaks
+MOCHA_OPTS= --check-leaks --colors
 REPORTER = spec
-test:
-	$(MAKE) lint
-	echo CIRCLE_BUILD_NUM $(CIRCLE_BUILD_NUM)
-	@NODE_ENV=testing ./node_modules/.bin/mocha -b \
-	--require blanket \
+test: lint
+	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
+	@./node_modules/.bin/mocha -b \
 	--reporter $(REPORTER) \
 	$(MOCHA_OPTS)
 
 lint:
-	./node_modules/.bin/jshint ./lib ./test ./index.js
+	@./node_modules/.bin/jshint ./lib ./test ./index.js
 
-test-cov:
-	$(MAKE) test REPORTER=spec
-	$(MAKE) test REPORTER=html-cov 1> coverage.html
+run-coverage:
+	@./node_modules/.bin/istanbul cover -v ./node_modules/.bin/_mocha
 
-test-coveralls:
-	$(MAKE) test REPORTER=spec
-	$(MAKE) test REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js --verbose
-	rm -rf lib-cov
+coverage: run-coverage
+	@./node_modules/.bin/istanbul report html
+
+update-coverage: run-coverage
+	@./node_modules/.bin/istanbul report lconvonly
+	@./node_modules/.bin/coveralls < coverage/lconv.info
 
 clean:
-	rm -f coverage.html
-	rm -fr lib-cov
+	rm -fr coverage
 
 .PHONY: test clean
