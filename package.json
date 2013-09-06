@@ -17,7 +17,8 @@
     "url": "https://github.com/playlist-media/theechonest/issues"
   },
   "dependencies": {
-    "request": "~2.27.0"
+    "request": "~2.27.0",
+    "kew": "~0.1.7"
   },
   "devDependencies": {
     "blanket": "~1.1.5",
