@@ -1,7 +1,7 @@
 {
   "name": "theechonest",
   "description": "API client for The Echo Nest",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "author": {
     "name": "Playlist, Inc",
     "url": "http://www.playlist.com"
