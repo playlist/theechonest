@@ -16,7 +16,7 @@ coverage: run-coverage
 	@./node_modules/.bin/istanbul report html
 
 update-coverage: run-coverage
-	@./node_modules/.bin/istanbul report lconvonly
+	@./node_modules/.bin/istanbul report lcovonly
 	@./node_modules/.bin/coveralls < coverage/lconv.info
 
 clean:
