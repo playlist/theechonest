@@ -2,6 +2,12 @@ var assert = require('assert');
 
 var index = require('../index');
 
+describe('Dummy', function() {
+  it('should succeed always', function() {
+    assert.equal(true, true);
+  });
+});
+
 describe('Array', function() {
   describe('#indexOf()', function() {
     it('should return -1 when the value is not present', function() {
