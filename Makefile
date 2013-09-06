@@ -1,32 +1,27 @@
 MOCHA_OPTS= --check-leaks
 REPORTER = spec
+test:
+	$(MAKE) lint
+	echo CIRCLE_BUILD_NUM $(CIRCLE_BUILD_NUM)
+	@NODE_ENV=testing ./node_modules/.bin/mocha -b \
+	--require blanket \
+	--reporter $(REPORTER) \
+	$(MOCHA_OPTS)
 
-check: test
+lint:
+	./node_modules/.bin/jshint ./lib ./test ./index.js
 
-test: test-unit test-acceptance
+test-cov:
+	$(MAKE) test REPORTER=spec
+	$(MAKE) test REPORTER=html-cov 1> coverage.html
 
-test-unit:
-	@NODE_ENV=test ./node_modules/.bin/mocha \
-		--reporter $(REPORTER) \
-		$(MOCHA_OPTS)
-
-test-acceptance:
-	@NODE_ENV=test ./node_modules/.bin/mocha \
-		--reporter $(REPORTER) \
-		--bail \
-		test/acceptance/*.js
-
-test-cov: lib-cov
-	@EXPRESS_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
-
-lib-cov:
-	@jscoverage lib lib-cov
-
-benchmark:
-	@./support/bench
+test-coveralls:
+	$(MAKE) test REPORTER=spec
+	$(MAKE) test REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js --verbose
+	rm -rf lib-cov
 
 clean:
 	rm -f coverage.html
 	rm -fr lib-cov
 
-.PHONY: test test-unit test-acceptance benchmark clean
+.PHONY: test clean
