@@ -1,9 +1,6 @@
 // test/support/common.js
 
-var chai = require('chai'),
-    chaiAsPromised = require('chai-as-promised');
-
-chai.use(chaiAsPromised);
+var chai = require('chai');
 
 global.should = chai.should();
 global.expect = chai.expect;
