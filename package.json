@@ -21,12 +21,11 @@
     "lodash": "~2.1.0"
   },
   "devDependencies": {
-    "chai": "~1.7.2",
-    "mocha": "~1.12.1",
-    "coveralls": "~2.2.0",
+    "chai": "~1.8.0",
+    "mocha": "~1.13.0",
+    "coveralls": "~2.3.0",
     "jshint": "~2.1.10",
-    "istanbul": "~0.1.43",
-    "chai-as-promised": "~3.3.1"
+    "istanbul": "~0.1.43"
   },
   "keywords": [
     "echonest",
