@@ -10,7 +10,9 @@ describe('TheEchoNest', function() {
   it('should return an artist', function(done) {
     var artistId = 'ARH6W4X1187B99274F';
 
-    echonest.artist.profile({id: artistId}, function(err, artist) {
+    echonest.artist.profile({id: artistId}, function(err, data) {
+      var artist = data.artist;
+
       should.not.exist(err);
 
       artist.should.be.an('object');
