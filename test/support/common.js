@@ -14,4 +14,4 @@ global.check = function check(done, f) {
 };
 
 // use custom API key or the demo one from the docs
-global.apiKey = process.env.ECHONEST_API_KEY || 'FILDTEOIK2HBORODV';
+global.apiKey = process.env.ECHONEST_API_KEY || 'F90ZGWYHO9XFTPTHO';

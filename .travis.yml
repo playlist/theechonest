@@ -7,4 +7,4 @@ after_script:
 env:
   global:
     # ECHONEST_API_KEY
-    - secure: "E+yJxSQB3iTIvLpd/SjQf9wzNjU4wYqMnKoBuCBx6yaZStzmHSgTrXahDX/2Ix72SEMdSSjazLTdQnXwgB+XIEubBUOIH5i5pp0AY6hSnbcxL5Ik6tVXr1afkDWLRc3Eo1dm2sKvDRfD+UMU//B3UpcpURVfgFQ0Y+Rhi3w5qmc="
+    - secure: "TmUR560Jm6Rc8K5zoEVskER3h4Evkf/Db7JHArfY33sXW57XOe6i9IKLedRUEf3I0/VIyHNt0oyv2A8w0kllisVtILAdg2adGKflWJzqeP0XWEaVPATgodLO8TUPDCVQV5OX662UR6t9YkY8XaOrZYDoHUxhqzcf4YV5LdKQO8Q="
