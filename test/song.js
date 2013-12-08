@@ -115,7 +115,7 @@ describe('Song Search', function() {
   });
 });
 
-describe('Song Identify', function() {
+describe.skip('Song Identify', function() {
   var echonest = new TheEchoNest(apiKey);
 
   // Song Identify
