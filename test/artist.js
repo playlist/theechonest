@@ -8,13 +8,13 @@ var artistId = 'ARH6W4X1187B99274F';
 
 describe('Artist Profile', function() {
   var echonest = new TheEchoNest(apiKey);
-  
+
   // Artist Profile
 
   it('should return an artist', function(done) {
     echonest.artist.profile({id: artistId}, function(err, data) {
       should.not.exist(err);
-      
+
       var artist = data.artist;
 
       artist.should.be.an('object');
@@ -45,7 +45,7 @@ describe('Artist Profile', function() {
 
 describe('Artist Biographies', function() {
   var echonest = new TheEchoNest(apiKey);
-  
+
   // Artist Biographies
 
   it('should return an artist', function(done) {
@@ -79,7 +79,7 @@ describe('Artist Biographies', function() {
 
 describe('Artist Blogs', function() {
   var echonest = new TheEchoNest(apiKey);
-  
+
   // Artist Blogs
 
   it('should return an artist', function(done) {
@@ -111,9 +111,9 @@ describe('Artist Blogs', function() {
   });
 });
 
-describe('Artist Familiarity', function() {
+describe.skip('Artist Familiarity', function() {
   var echonest = new TheEchoNest(apiKey);
-  
+
   // Artist Familiarity
 
   it('should return an artist', function(done) {
@@ -148,9 +148,9 @@ describe('Artist Familiarity', function() {
   });
 });
 
-describe('Artist Hotttnesss', function() {
+describe.skip('Artist Hotttnesss', function() {
   var echonest = new TheEchoNest(apiKey);
-  
+
   // Artist Hotttnesss
 
   it('should return an artist', function(done) {
@@ -187,7 +187,7 @@ describe('Artist Hotttnesss', function() {
 
 describe('Artist Images', function() {
   var echonest = new TheEchoNest(apiKey);
-  
+
   // Artist Images
 
   it('should return an artist', function(done) {
