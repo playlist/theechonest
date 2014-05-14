@@ -21,15 +21,15 @@
     "url": "https://github.com/playlist-media/theechonest/issues"
   },
   "dependencies": {
-    "request": "~2.27.0",
-    "lodash": "~2.1.0"
+    "request": "~2.34.0",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
-    "chai": "~1.8.0",
-    "mocha": "~1.13.0",
-    "coveralls": "~2.3.0",
-    "jshint": "~2.1.10",
-    "istanbul": "~0.1.43"
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2",
+    "coveralls": "~2.10.0",
+    "jshint": "~2.5.0",
+    "istanbul": "~0.2.9"
   },
   "keywords": [
     "echonest",
