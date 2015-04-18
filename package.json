@@ -45,6 +45,6 @@
     "test": "make test"
   },
   "engines": {
-    "node": "*"
+    "node": ">=0.10"
   }
 }
