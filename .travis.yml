@@ -1,9 +1,20 @@
+sudo: false
+
 language: node_js
 
 node_js:
   - "stable"
   - "iojs"
   - "0.12"
+
+env:
+  global:
+    # ECHONEST_API_KEY
+    - secure: "E+yJxSQB3iTIvLpd/SjQf9wzNjU4wYqMnKoBuCBx6yaZStzmHSgTrXahDX/2Ix72SEMdSSjazLTdQnXwgB+XIEubBUOIH5i5pp0AY6hSnbcxL5Ik6tVXr1afkDWLRc3Eo1dm2sKvDRfD+UMU//B3UpcpURVfgFQ0Y+Rhi3w5qmc="
+
+cache:
+  directories:
+    - node_modules
 
 before_install:
   - npm config set spin false --global
