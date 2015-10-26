@@ -2,7 +2,7 @@
 
 // test/echonest.js
 
-var TheEchoNest = require('../index');
+var TheEchoNest = require('../src');
 
 describe('Song Profile', function() {
   var echonest = new TheEchoNest(apiKey);

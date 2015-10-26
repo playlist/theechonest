@@ -1,10 +1,10 @@
-// lib/song.js
+export default class Song {
+  constructor(echonest) {
+    this.echonest = echonest;
+  }
 
-var _ = require('lodash');
-
-module.exports = function song(echonest) {
-  this.search = function search(params, callback) {
-    params = echonest.network._filterParams(params, [
+  search(params, callback) {
+    const filteredParams = this.echonest.network._filterParams(params, [
       'artist',
       'title',
       'combined',
@@ -50,45 +50,45 @@ module.exports = function song(echonest) {
       'key',
       'bucket',
       'sort',
-      'limit'
+      'limit',
     ]);
 
-    var query = echonest.network._buildQuery(params);
+    const query = this.echonest.network._buildQuery(filteredParams);
 
-    var uri = 'song/search?' + query;
+    const uri = 'song/search?' + query;
 
-    echonest.network.get(uri, function(err, data) {
+    this.echonest.network.get(uri, (err, data) => {
       if (err) return callback(err, null);
 
       callback(null, data);
     });
-  };
+  }
 
-  this.profile = function profile(params, callback) {
-    params = echonest.network._filterParams(params, [
+  profile(params, callback) {
+    const filteredParams = this.echonest.network._filterParams(params, [
       'id',
       'track_id',
       'bucket',
-      'limit'
+      'limit',
     ]);
 
-    if (!params.id && !params.track_id) {
+    if (!filteredParams.id && !filteredParams.track_id) {
       return callback(new Error('Must specify an id or a track_id'), null);
     }
 
-    var query = echonest.network._buildQuery(params);
+    const query = this.echonest.network._buildQuery(filteredParams);
 
-    var uri = 'song/profile?' + query;
+    const uri = 'song/profile?' + query;
 
-    echonest.network.get(uri, function(err, data) {
+    this.echonest.network.get(uri, (err, data) => {
       if (err) return callback(err, null);
 
       callback(null, data);
     });
-  };
+  }
 
-  this.identify = function identify(params, callback) {
-    params = echonest.network._filterParams(params, [
+  identify(params, callback) {
+    const filteredParams = this.echonest.network._filterParams(params, [
       'query',
       'code',
       'artist',
@@ -97,17 +97,17 @@ module.exports = function song(echonest) {
       'duration',
       'genre',
       'version',
-      'bucket'
+      'bucket',
     ]);
 
-    var query = echonest.network._buildQuery(params);
+    const query = this.echonest.network._buildQuery(filteredParams);
 
-    var uri = 'song/identify?' + query;
+    const uri = 'song/identify?' + query;
 
-    echonest.network.get(uri, function(err, data) {
+    this.echonest.network.get(uri, (err, data) => {
       if (err) return callback(err, null);
 
       callback(null, data);
     });
-  };
-};
+  }
+}

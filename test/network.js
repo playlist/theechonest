@@ -1,7 +1,7 @@
 // test/network.js;
 /* global apiKey, describe, it, should */
 
-var TheEchoNest = require('../index');
+var TheEchoNest = require('../src');
 
 var demoUrl = 'song/profile?format=json&id=SOCZMFK12AC468668F';
 
@@ -51,4 +51,3 @@ describe('Network', function() {
 
   });
 });
-

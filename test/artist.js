@@ -2,7 +2,7 @@
 
 // test/echonest.js
 
-var TheEchoNest = require('../index');
+var TheEchoNest = require('../src');
 
 var artistId = 'ARH6W4X1187B99274F';
 

@@ -1,53 +1,53 @@
 {
   "name": "theechonest",
+  "version": "1.0.0",
   "description": "API client for The Echo Nest",
-  "version": "0.1.1",
-  "author": {
-    "name": "Playlist, Inc",
-    "url": "http://www.playlist.com"
-  },
   "contributors": [
-    {
-      "name": "Jacob Gillespie",
-      "email": "jacobwgillespie@gmail.com"
-    },
-    {
-      "name": "Hugh Rawlinson",
-      "email": "hugh@codeoclock.net"
-    }
+    "Jacob Gillespie <jacobwgillespie@gmail.com>",
+    "Hugh Rawlinson <hugh@codeoclock.net>"
   ],
-  "homepage": "https://github.com/playlist-media/theechonest",
+  "license": "MIT",
+  "homepage": "https://github.com/playlist/theechonest",
   "bugs": {
-    "url": "https://github.com/playlist-media/theechonest/issues"
+    "url": "https://github.com/playlist/theechonest/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playlist/theechonest.git"
+  },
+  "main": "dist/index.js",
+  "options": {
+    "mocha": "--require resources/mocha-bootload --reporter spec --check-leaks --colors"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run testonly",
+    "testonly": "mocha $npm_package_options_mocha",
+    "lint": "eslint src",
+    "build": "babel src --ignore __tests__ --out-dir dist/",
+    "cover": "babel-node node_modules/.bin/isparta cover --root src --report html node_modules/.bin/_mocha -- $npm_package_options_mocha",
+    "cover:lcov": "babel-node node_modules/.bin/isparta cover --root src --report lcovonly node_modules/.bin/_mocha -- $npm_package_options_mocha",
+    "preversion": ". ./resources/checkgit.sh && npm test",
+    "prepublish": ". ./resources/prepublish.sh"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
-    "lodash": "^3.7.0",
     "request": "^2.55.0"
   },
   "devDependencies": {
+    "babel": "^5.8.29",
     "babel-eslint": "^4.1.3",
+    "babel-runtime": "^5.8.29",
     "chai": "^3.4.0",
     "coveralls": "^2.11.4",
     "eslint": "^1.7.3",
     "eslint-config-airbnb": "^0.1.0",
+    "isparta": "^3.1.0",
     "istanbul": "^0.4.0",
     "jshint": "^2.8.0",
     "mocha": "^2.3.3"
-  },
-  "keywords": [
-    "echonest",
-    "theechonest"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/playlist-media/theechonest.git"
-  },
-  "main": "index",
-  "scripts": {
-    "prepublish": "npm prune",
-    "test": "make test"
-  },
-  "engines": {
-    "node": ">=0.10"
   }
 }
