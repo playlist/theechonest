@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-var index = require('../index');
+var index = require('../src');
 
 describe('Dummy', function() {
   it('should succeed always', function() {

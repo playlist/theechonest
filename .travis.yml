@@ -1,13 +1,41 @@
+sudo: false
+
 language: node_js
+
 node_js:
-  - "0.10"
+  - "stable"
+  - "iojs"
   - "0.12"
-after_script:
-  - make update-coverage
+
 env:
   global:
     # ECHONEST_API_KEY
     - secure: "E+yJxSQB3iTIvLpd/SjQf9wzNjU4wYqMnKoBuCBx6yaZStzmHSgTrXahDX/2Ix72SEMdSSjazLTdQnXwgB+XIEubBUOIH5i5pp0AY6hSnbcxL5Ik6tVXr1afkDWLRc3Eo1dm2sKvDRfD+UMU//B3UpcpURVfgFQ0Y+Rhi3w5qmc="
+
 cache:
   directories:
     - node_modules
+
+before_install:
+  - npm config set spin false --global
+
+script:
+  - npm run lint && (if [[ "$TRAVIS_JOB_NUMBER" == *.1 ]]; then npm run cover:lcov; else npm run testonly; fi)
+
+after_failure:
+  - (cd resources; python travis_after_all.py)
+
+after_success:
+  - (cd resources; python travis_after_all.py)
+  - export $(cat resources/.to_export_back)
+  - if [[ "$TRAVIS_JOB_NUMBER" == *.1 ]]; then cat ./coverage/lcov.info | ./node_modules/.bin/coveralls; fi
+
+deploy:
+  provider: npm
+  email: jarvis@playlist.com
+  api_key:
+    secure: U8Yqc0CpRrxAaYTJVOevLtoljFxQeXb9/9ATkgW5cTkSK2smsTnlyAwLaCB5SJQV0SpPJT3O5naenf8DoUo1Ic1W/Y8zb9xtP1VwCRX9BnQBqwXxIIOBaE7YAEo+JvafPkqrHYAnNidUrr0MSKr+BtWqk8jMVomGu4Mr0qrBP3g=
+  on:
+    tags: true
+    branch: master
+    condition: "$BUILD_LEADER$BUILD_AGGREGATE_STATUS = YESothers_succeeded"
